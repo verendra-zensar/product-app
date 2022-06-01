@@ -1,0 +1,71 @@
+<div class="card">
+<div class="card-header">
+    customer form!
+</div>
+<div class="card-body">
+    <form novalidate (ngSubmit)="save()"  #custForm="ngForm">
+     <div class="form-group row mb-2">
+         <label class="col-md-2 col-form-label" for ="firstNameId"> First Name</label>
+         <div class="col-md-8">
+             <input type="text"
+             id="firstNameId"
+             placeholder="First Name(required)"
+             required
+             minlength="3"
+             [(ngModel)]="customer.firstName"
+             name="firstName"
+             #firstNameVar="ngModel"/>
+
+         </div>
+     </div>  
+     
+     <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for ="lastNameId"> Last Name</label>
+        <div class="col-md-8">
+            <input type="text"
+            id="lastNameId"
+            placeholder="last Name(required)"
+            required
+            minlength="3"
+            [(ngModel)]="customer.lastName"
+            name="lastName"
+            #lastNameVar="ngModel"/>
+
+        </div>
+    </div> 
+     
+    <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for ="emailId"> Email</label>
+        <div class="col-md-8">
+            <input type="email"
+            id="emailId"
+            placeholder="First Name(required)"
+            required
+            
+            [(ngModel)]="customer.email"
+            name="email"
+            #emailVar="ngModel"/>
+
+        </div>
+    </div> 
+
+    <div class="form-group row mb-2">
+     <div class="offset-md-2 col-md-4">
+         <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+         [title]="custForm.valid  ? 'save your data' : 'disabled until data is valid '"
+         [disabled]="!custForm.valid">Save</button>
+         <button class="btn btn-outline-secondary" type="button" >ShowData</button>
+     </div>
+     
+    </div>
+  
+    </form>
+</div>
+
+</div>
+
+<br>Dirty:{{cusForm.dirty}}
+<br>Touched:{{cusForm.touched}}
+<br>Valid:{{cusForm.valid}}
+<br>value:{{cusForm.value | json}}
+<br>&nbsp;
